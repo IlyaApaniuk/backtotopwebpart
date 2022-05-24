@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "back-to-top-client-side-solution",
+    "id": "8397c6ae-0169-4aa3-a0e7-c3f352e9289f",
+    "version": "1.0.0.1",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "back-to-top description"
+      },
+      "longDescription": {
+        "default": "back-to-top description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "back-to-top Feature",
+        "description": "The feature that activates elements of the back-to-top solution.",
+        "id": "c72a4c45-719d-4ff6-a12c-e40e2768e330",
+        "version": "1.0.0.1"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/back-to-top.sppkg"
+  }
+}
