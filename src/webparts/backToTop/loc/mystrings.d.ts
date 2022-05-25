@@ -9,6 +9,8 @@ declare interface IBackToTopWebPartStrings {
   PositionYLabel: string;
   OnHoverTextLabel: string;
   ScrollBehaviorLabel: string;
+  ButtonSizeLabel: string;
+  UseCustomButtonColorLabel: string;
   AppLocalEnvironmentSharePoint: string;
   AppLocalEnvironmentTeams: string;
   AppSharePointEnvironment: string;

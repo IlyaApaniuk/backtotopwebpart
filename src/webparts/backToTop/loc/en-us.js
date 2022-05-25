@@ -10,6 +10,8 @@ define([], function() {
     "PositionYLabel": "Position by Y coordinate",
     "OnHoverTextLabel": "Hover over text",
     "ScrollBehaviorLabel": "Scroll behaviour",
+    "ButtonSizeLabel": "Back button size",
+    "UseCustomButtonColorLabel": "Use custom button color",
     "AppLocalEnvironmentSharePoint": "The app is running on your local environment as SharePoint web part",
     "AppLocalEnvironmentTeams": "The app is running on your local environment as Microsoft Teams app",
     "AppSharePointEnvironment": "The app is running on SharePoint page",

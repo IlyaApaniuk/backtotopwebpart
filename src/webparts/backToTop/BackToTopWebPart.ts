@@ -18,10 +18,16 @@ export interface IBackToTopWebPartProps {
     positionY: number;
     onHoverText: string;
     scrollBehavior: string;
+    buttonSize: number;
+    useCustomColor: boolean;
 }
 
 export default class BackToTopWebPart extends BaseClientSideWebPart<IBackToTopWebPartProps> {
     protected onInit(): Promise<void> {
+        const canvasZone = this.context.domElement.parentElement.parentElement.parentElement;
+
+        canvasZone.style.padding = "0";
+
         return super.onInit();
     }
 
@@ -34,6 +40,8 @@ export default class BackToTopWebPart extends BaseClientSideWebPart<IBackToTopWe
             positionY: this.properties.positionY,
             onHoverText: this.properties.onHoverText,
             scrollBehavior: this.properties.scrollBehavior,
+            size: this.properties.buttonSize,
+            useCustomColor: this.properties.useCustomColor,
             isEditMode: this.displayMode === DisplayMode.Edit
         });
 
@@ -75,6 +83,10 @@ export default class BackToTopWebPart extends BaseClientSideWebPart<IBackToTopWe
                                     label: strings.OnHoverTextLabel,
                                     value: this.properties.onHoverText
                                 }),
+                                PropertyPaneToggle("useCustomColor", {
+                                    label: strings.UseCustomButtonColorLabel,
+                                    checked: this.properties.useCustomColor
+                                }),
                                 PropertyFieldColorPicker("backgroundColor", {
                                     label: "Color",
                                     selectedColor: this.properties.backgroundColor,
@@ -105,6 +117,12 @@ export default class BackToTopWebPart extends BaseClientSideWebPart<IBackToTopWe
                                 PropertyPaneToggle("disabled", {
                                     label: strings.DisabledFieldLabel,
                                     checked: this.properties.disabled
+                                }),
+                                PropertyPaneSlider("buttonSize", {
+                                    label: strings.ButtonSizeLabel,
+                                    value: this.properties.buttonSize,
+                                    min: 10,
+                                    max: 30
                                 }),
                                 PropertyPaneSlider("scrollHeight", {
                                     label: strings.ScrollHeightLabel,

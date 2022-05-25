@@ -19,7 +19,8 @@
       "scrollHeight": 50,
       "positionX": 95,
       "positionY": 2,
-      "scrollBehavior": "auto"
+      "scrollBehavior": "auto",
+      "buttonSize": 10
     }
   }]
 }

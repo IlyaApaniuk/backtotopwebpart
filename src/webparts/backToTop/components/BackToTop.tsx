@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
+import { PrimaryButton } from "@fluentui/react/lib/Button";
+import { TooltipHost } from "@fluentui/react/lib/Tooltip";
 // eslint-disable-next-line import/no-unresolved
 import * as strings from "BackToTopWebPartStrings";
 
@@ -14,9 +16,11 @@ export interface IBackToTopProps {
     onHoverText: string;
     isEditMode: boolean;
     scrollBehavior: string;
+    size: number;
+    useCustomColor: boolean;
 }
 
-const BackToTop: React.FC<IBackToTopProps> = ({ backgroundColor, disabled, scrollHeight, positionX, positionY, onHoverText, isEditMode, scrollBehavior }) => {
+const BackToTop: React.FC<IBackToTopProps> = ({ backgroundColor, disabled, scrollHeight, positionX, positionY, onHoverText, isEditMode, scrollBehavior, size, useCustomColor }) => {
     const [shouldDisplay, setShouldDisplay] = React.useState<boolean>(false);
 
     const divWrapper = document.querySelectorAll('[data-automation-id="contentScrollRegion"]')[0];
@@ -41,14 +45,28 @@ const BackToTop: React.FC<IBackToTopProps> = ({ backgroundColor, disabled, scrol
         <>
             {isEditMode && <h4>{strings.PropertyPaneDescription}</h4>}
             <div
-                title={onHoverText}
-                className={styles.backToTop}
-                onClick={goTop}
-                role="button"
-                tabIndex={0}
-                style={{ backgroundColor, display: disabled ? "none" : shouldDisplay || isEditMode ? "block" : "none", left: `${positionX}%`, bottom: `${positionY}%` }}
+                className={styles.backToTopWrapper}
+                style={{
+                    display: disabled ? "none" : shouldDisplay || isEditMode ? "block" : "none",
+                    left: `${positionX}%`,
+                    bottom: `${positionY}%`
+                }}
             >
-                <Icon className={styles.icon} iconName="Up" />
+                <TooltipHost content={onHoverText} calloutProps={{ gapSpace: size }}>
+                    <PrimaryButton
+                        className={styles.backToTop}
+                        onClick={goTop}
+                        style={{
+                            minWidth: 10,
+                            minHeight: 10,
+                            padding: size,
+                            backgroundColor: useCustomColor ? backgroundColor : "",
+                            borderColor: useCustomColor ? backgroundColor : ""
+                        }}
+                    >
+                        <Icon className={styles.icon} iconName="Up" />
+                    </PrimaryButton>
+                </TooltipHost>
             </div>
         </>
     );
